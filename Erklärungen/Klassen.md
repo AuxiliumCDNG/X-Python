@@ -59,6 +59,34 @@ mensch1 = Mensch("Dieter", 41)
 
 Bei der Instanziierung wird der Konstruktor automatisch mit den gegebenen Parametern gestartet...
 
+## Zugriff auf Klassen Methoden und Attribute
+Möchtest du Methoden oder Attribute einer Klasse verwenden, musst du die sog. Punktnotation verwenden. Diese funktioniert folgendermaßen:
+Zuerst muss du den Namen der Variable verwenden, in der du die Instanz der Klasse gespeichert hast. Dann greifst du über einen Punkt auf dessen Inhalt zu:
+
+```python
+print("Du bist ", mensch1.alter, "Jahre alt!")
+```
+
+Im folgenden Beispiel enthält ein Attribut der Klasse Mensch ein Objekt der Klasse TShirt:
+
+```python
+class TShirt:
+    def __init__(farbe, groesse):
+        self.farbe = farbe
+        self.groesse = groesse
+
+
+class Mensch:
+    def __init__():
+        kleidung = TShirt("blau", "M")
+        ...
+
+mensch1 = Mensch()
+farbe_tshirt = mensch1.kleidung.farbe
+```
+
+Man kann also über die Punktnotation auch gleich mehrere Ebenen in eine Klasse bzw. ein Objekt einer Klasse betrachten. Stelle dir die Namen der Attribute und Methoden wie die Namen von Ordnern auf deinem Computer vor. In diese kannst du jeweils über einen "."(Punkt) zugreifen bzw. in diesen hinein gehen.
+
 ## Vererbung
 Manchmal möchtest du für bestimmte Fälle eine Sache in einer Klasse anpassen oder eine neue Methode haben. Damit die ganze Klassen nicht neu programmiert werden muss, kannst du Attribute und Methoden in neue Klassen "vererben", sie also übernehmen, ohne diese neu zu erstellen.
 
