@@ -1,2 +1,2 @@
-# X-Python
-Erklärungen und Inhalte für das X-Python Labor von www.sfz-nw.de
+# X-Python Labor Material
+Willkommen im Repository vom X-Python Labor! Hier finden sich viele nützeliche Erklärungen und Materialien.
