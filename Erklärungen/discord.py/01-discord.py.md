@@ -13,6 +13,13 @@ pip install discord.py
 
 Oder über PyCharm: `File -> Settings -> Project -> Interpreter`
 
+Wie jeder Bot braucht auch discord.py einen Token, um sich bei der Discord API zu authentifizieren. Diesen muss man sich über die Discord Entwicklerseite erstellen:
+<https://discord.com/developers/applications>
+
+Ggf. Bot erstellen und Namen bestätigen.
+
+Dann Token direkt kopieren und abspeichern. Falls dieser nicht angezeigt wird, muss der Token über "reset Token" zurückgesetzt werden. Dann wird er wieder einmalig angezeigt.
+
 ---
 
 Man beginnt damit, eine Client-Instanz zu erstellen. Diese kümmert sich um die Grundfunktionen des Bots. Sie enthält Operationen, um den Bot zu starten und ihn anzumelden etc. Sie kümmert sich auch um Events:
