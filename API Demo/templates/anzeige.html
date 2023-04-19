@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display</title>
+    <style>
+        body, html, .center {
+            height: 100vh;
+        }
+
+        .center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <h1 id="the-text">Text field</h1>
+    </div>
+
+    <script>
+        // Credit https://javascript.info/long-polling
+        async function subscribe(long_poll=true) {
+            let response = await fetch('/api/text/get/?long_poll='+long_poll);
+
+            if (response.status == 502) {
+                // Status 502 is a connection timeout error,
+                // may happen when the connection was pending for too long,
+                // and the remote server or a proxy closed it
+                // let's reconnect
+                await subscribe();
+            } else if (response.status != 200) {
+                // An error - let's show it
+                showMessage(response.statusText);
+                // Reconnect in one second
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                await subscribe();
+            } else {
+                // Get and show the message
+                let textJSON = await response.json();
+                const textElement = document.getElementById('the-text');
+
+                // Output the data to the console.
+                console.log(textJSON);
+
+                // Change the text and style properties to adjust the colors.
+                textElement.innerText = textJSON.text;
+                document.body.style.background = textJSON.backgroundColor;
+                textElement.style.color = textJSON.textColor;
+                // Call subscribe() again to get the next message
+                await subscribe();
+            }
+        }
+
+        subscribe(long_poll=false);
+    </script>
+</body>
+</html>
