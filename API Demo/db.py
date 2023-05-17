@@ -13,8 +13,8 @@ class Todo(Base):
     __tablename__ = "todo"
     id = Column(Integer(), primary_key=True, autoincrement=True)
     aufgabe = Column(String())
-    fortschritt = Column(Integer())
-    fertig = Column(Boolean())
+    fortschritt = Column(Integer(), default=0)
+    fertig = Column(Boolean(), default=False)
 
 class Benutzer(Base):
     __tablename__ = "benutzer"
